@@ -5,8 +5,8 @@
  BARVY
  pozadi     #f5f5f5
  Jedeme retro cernobile, dnes barvy nepotrebujeme.
-*/
-
+*/ 
+/*Nechapu to, co to znamena?:)*/ 
 
 body {
     margin: 0;
@@ -17,27 +17,283 @@ body {
     line-height: 1.6;
 }
 
-
 /* HLAVICKA */
 
 .titulek {
     font-family: 'Raleway', serif;
+    font-size: 50px;
+    margin: 0;
+    padding: 40px 0;
 }
 
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/island-hlavicka.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* max-width: 100%;
+    height: auto; ---> chtela bych, aby byl obrazek responzivni, ale tohle nefunguje.. 
+    jak se toho da docilit, prosim? */
+    color: white;
+    text-align: center;
+} 
+
+.perex {
+    margin: 0 30px 30px 30px;
+}
+
+.autor {
+    font-style: italic;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+}
+
+.autor::before {
+    content: "";
+    background-color: #f5f5f5;
+    position: absolute;
+    height: 2px;
+    width: 14%;
+    opacity: 0.9;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 
 /* MENU */
 
+.menu {
+    margin: 50px;
+    padding: 0;
+}
 
+.menu li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-transform: uppercase;
+    border-bottom: 1px solid #8b8b8b;
+    text-align: center;
+    padding: 6px;
+}
 
+.menu a {
+    text-decoration: none;
+    color: #837e7e;
+    font-size: 15px;
+    display: block;
+}
+
+.menu a:hover,
+.menu a:focus,
+.menu a:active {
+    color: #2b2a2a;
+}
 
 /* OBSAH */
+p,
+h2 {
+    margin: 0 30px 30px 30px;
+}
 
+h2 {
+    position: relative;
+    padding-bottom: 30px;
+}
 
+h2::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: #5aa3d3;
+    width: 30%;
+    bottom: 0;
+    left: -30px;
+    padding-left: 0;
+}
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.popisek1,
+.popisek1 a {
+    text-align: center;
+    color: #b1b1b1;
+    font-size: 13px;
+}
 
 /* FOTOGALERIE */
+.foto img {
+    width: 100%;
+    height: auto;
+}
 
+.popisek2,
+.popisek2 a {
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #b1b1b1;
+    font-size: 13px;
+} 
 
-
+.popisek-copy,
+.popisek2 a {
+    font-weight: normal;
+    color: #b1b1b1;
+    font-size: 13px;
+}
 
 /* PATICKA */
+
+footer,
+footer a {
+    text-align: left;
+    color: #837e7e;
+    font-size: 13px;
+    background-color: #c4c3c3;
+}
+
+footer p {
+    padding: 20px 30px;
+    margin: 0;
+}
+
+/*--TABLET--*/
+@media (min-width: 500px) {
+    .menu {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu li {
+        border: 1px solid #8b8b8b;
+        flex: 1 1 25%;
+        padding: 10px;
+    }
+
+    .menu li:first-child {
+        border-left: none;
+    }
+
+    .menu li:last-child {
+        border-right: none;
+    }
+
+    h2::after {
+        width: 20%;
+    }
+
+    .popisek1 {
+        text-align: right;
+        transform: translate(10px, -40px);
+        color: #e9e6e6;
+        margin: 0;
+        padding-right: 20px;
+    }
+
+    .popisek1 a,
+    .popisek2,
+    .popisek-copy,
+    .popisek2 a {
+        color: #e9e6e6;
+        font-size: 13px;
+    }
+
+    .galerie {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        line-height: 0;
+    }
+    
+    .foto {
+        position: relative;
+        width: 50%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .foto .popisek2 { 
+        position: absolute;
+        display: none;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .foto:hover .popisek2,
+    .foto:hover .popisek-copy {
+        display: block;
+        line-height: 1.6;
+        text-align: left;
+        bottom: -10%;
+    }
+}
+
+/*--PC--*/
+@media (min-width: 1000px) {
+
+    body {
+        background-color: #c4c3c3;
+    }
+
+    header {
+        height: 400px;
+    }
+
+    .perex {
+        max-width: 960px;
+        margin: auto;
+    }
+
+    .obdelnik {
+        max-width: 960px;
+        background-color: #f5f5f5;
+        margin-top: -70px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    .menu li {
+       border-bottom: 1px solid #8b8b8b;
+       border-top: none;
+       border-left: none;
+       border-right: none;
+    }
+
+    .uvod,
+    .videt1 {
+        padding: 50px 40px 0 250px;
+    }
+
+    h2::after {
+        width: 14%;
+    }
+
+    .proc,
+    .videt2 {
+        padding-left: 40px;
+        padding-right: 200px;
+    }
+
+    .foto {
+        width: calc(100% / 3);
+    }
+
+    footer {
+        max-width: 960px;
+        margin: auto;
+        z-index: -100;
+    }
+}
+
